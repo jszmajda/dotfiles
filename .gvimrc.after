@@ -1,0 +1,17 @@
+"set background=dark
+"colorscheme slate
+colorscheme darkspectrum
+"colorscheme jellybeans
+"colorscheme rdark
+"colorscheme mustang
+" set guifont=FreeMono\ Bold\ 10
+" set guifont=Liberation\ Mono\ 10
+set guifont=Inconsolata\ 11
+set novisualbell
+" set cursorline
+
+set colorcolumn=80
+highlight ColorColumn guibg=#222
+
+" don't resize my splits, dude.
+autocmd! VimResized *

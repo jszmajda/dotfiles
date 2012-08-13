@@ -1,0 +1,91 @@
+"set shiftwidth=2 softtabstop=2 tabstop=2 expandtab smartindent
+"set backspace=start,indent
+"set hlsearch
+"autocmd FileType make     set noexpandtab
+"syn on
+"hi Comment ctermfg=darkmagenta
+"filetype plugin indent on
+"set number
+"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+"set grepformat=%f:%l:%m
+"set modeline
+
+
+"function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
+"  let ft=toupper(a:filetype)
+"  let group='textGroup'.ft
+"  if exists('b:current_syntax')
+"    let s:current_syntax=b:current_syntax
+"    " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+"    " do nothing if b:current_syntax is defined.
+"    unlet b:current_syntax
+"  endif
+"  execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
+"  try
+"    execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
+"  catch
+"  endtry
+"  if exists('s:current_syntax')
+"    let b:current_syntax=s:current_syntax
+"  else
+"    unlet b:current_syntax
+"  endif
+"  execute 'syntax region textSnip'.ft.'
+"  \ matchgroup='.a:textSnipHl.'
+"  \ start="'.a:start.'" end="'.a:end.'"
+"  \ contains=@'.group
+"endfunction
+
+"call TextEnableCodeSnip('javascript', '<<-SCRIPT', 'SCRIPT', 'SpecialComment')
+" call TextEnableCodeSnip('javascript', '<% javascript_tag do %>', '<% end #vim:js %>', 'SpecialComment')
+" call TextEnableCodeSnip('javascript', 'javascript_tag', 'vim:js', 'SpecialComment')
+"
+set hidden
+set history=1000
+runtime macros/matchit.vim
+set scrolloff=3
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+"set list listchars=tab:>-,trail:·
+set list listchars=trail:·
+map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+nmap <leader>q :q<CR>
+nmap <C-t> :tabnew<CR>
+imap <C-t> <Esc>:tabnew<CR>i
+map <S-h> gT
+map <S-l> gt
+map <S-q> :q<CR>
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>i
+inoremap jj <Esc>
+nmap ss :w<CR>
+nmap sa :wall<CR>
+nmap <Leader>w :set nowrap!<CR>
+nmap <C-A> za
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"set statusline+=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"set laststatus=2
+"let g:syntastic_enable_signs=1
+
+
+"" make indent/outdent reselect block
+"vnoremap < <gv
+"vnoremap > >gv
+
+"call janus#add_mapping('nerdtree', 'map', '<leader>n', ':NERDTreeMirrorToggle<CR>')
+"let g:nerdtree_tabs_open_on_gui_startup=0
+
+if janus#is_plugin_enabled("ctrlp")
+  let g:ctrlp_map = ''
+  let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$|\.yardoc$',
+    \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
+    \ }
+endif
+
+"set statusline=%f\ %m\ %r
+set wrap
+set nolbr " I don't like breaking on words
+set expandtab

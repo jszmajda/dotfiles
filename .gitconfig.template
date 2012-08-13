@@ -1,0 +1,65 @@
+[core]
+        editor = vim
+
+[color]
+	ui = always
+	status = auto
+	diff = auto
+	branch = auto
+[user]
+	name = Joshua Szmajda
+	email = josh@optoro.com
+[github]
+	user = joshsz
+	token = <github token>
+
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  lc = log ORIG_HEAD.. --stat --no-merges
+  sb = show-branch
+  br = branch
+  mg = merge
+  wu = log origin/master..
+  pop = reset head^
+  squish = commit -a --amend -C HEAD
+  squeeze = commit --amend -C HEAD
+  wup = log -p origin/master..
+  save = stash && git-stash apply
+  onup = !zsh ~/bin/rebase-branches
+  cy = cherry
+  last = log -1 HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[diff]
+        color = auto
+        rename = copy
+  #external = /home/josh/bin/diff.py
+
+
+[pager]
+        color = true
+
+[status]
+        color = auto
+
+[color "branch"]
+        current = green reverse
+        local = green
+        remote = red
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = green
+        changed = red
+        untracked = cyan
