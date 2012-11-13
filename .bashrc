@@ -125,3 +125,5 @@ __git_ps2 (){
     fi
 }
 PS1=$PS1'$(__git_ps2)\$ '
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

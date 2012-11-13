@@ -12,6 +12,7 @@ set novisualbell
 
 set colorcolumn=80
 highlight ColorColumn guibg=#222
+highlight Folded guifg=#938353
 
 " don't resize my splits, dude.
 autocmd! VimResized *
