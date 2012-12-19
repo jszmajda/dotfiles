@@ -70,6 +70,8 @@ nmap <C-A> za
 "set laststatus=2
 "let g:syntastic_enable_signs=1
 
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 
 "" make indent/outdent reselect block
 "vnoremap < <gv
@@ -91,6 +93,7 @@ set wrap
 set nolbr " I don't like breaking on words
 set expandtab
 
+
 "nmap <C-h> <C-w>h
 "imap <C-h> <Esc><C-w>hi
 "nmap <C-j> <C-w>j
@@ -99,6 +102,8 @@ set expandtab
 "imap <C-k> <Esc><C-w>ki
 "nmap <C-l> <C-w>l
 "imap <C-l> <Esc><C-w>li
+
+highlight Folded ctermbg=0 ctermfg=8
 
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
