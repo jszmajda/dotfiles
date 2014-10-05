@@ -1,0 +1,5 @@
+driver:
+  name: docker
+<% if ENV['DOCKER_HOST'] %>
+  socket: <%= ENV['DOCKER_HOST'] %>
+<% end %>

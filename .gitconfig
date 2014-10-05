@@ -1,0 +1,67 @@
+[core]
+  editor = vim
+
+[color]
+  ui = always
+  status = auto
+  diff = auto
+  branch = auto
+
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  sb = show-branch
+  br = branch
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  pl = !git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
+  u = !git add -u && git status
+  cnf = !git ls-files -u | cut -f 2 | sort -u
+  ;lc = log ORIG_HEAD.. --stat --no-merges
+  ;mg = merge
+  ;wu = log origin/master..
+  ;pop = reset head^
+  ;squish = commit -a --amend -C HEAD
+  ;squeeze = commit --amend -C HEAD
+  ;wup = log -p origin/master..
+  ;save = stash && git-stash apply
+  ;onup = !zsh ~/bin/rebase-branches
+  ;cy = cherry
+  ;last = log -1 HEAD
+
+[diff]
+  color = auto
+  rename = copy
+  ;external = /home/josh/bin/diff.py
+
+[pager]
+  color = true
+
+[status]
+  color = auto
+
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = red
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = green
+  changed = red
+  untracked = cyan
+
+[push]
+  default = simple
+
+[include]
+  path = ~/.secrets.gitconfig

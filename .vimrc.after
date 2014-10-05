@@ -63,6 +63,8 @@ nmap ss :w<CR>
 nmap sa :wall<CR>
 nmap <Leader>w :set nowrap!<CR>
 nmap <C-A> za
+nmap dbg :set background=dark<CR>
+nmap <C-g> :TagbarToggle<CR>
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -129,3 +131,14 @@ fu! CustomFoldText()
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endf
 set foldtext=CustomFoldText()
+
+set t_Co=256
+" also good: molokai, candycode, desert, desert256, herald, inkpot, jellybeans, lettuce
+"colorscheme desert256
+colorscheme jellybeans
+" set mouse=a
+
+"set undofile
+"set undodir=~/.vim/
+
+map <leader>sp :%s/ \+$//g<CR><C-O>
