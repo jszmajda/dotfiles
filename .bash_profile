@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Load RVM, if you are using it
-
-# Add rvm gems and nginx to the path
-export PATH=$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin
-
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash_it
 
@@ -54,6 +49,9 @@ alias tmux='tmux -CC'
 alias ls='ls -aFG'
 alias ll='ls -l'
 alias g=git
+alias gr=grunt
+alias robot='(cd /Users/josh/src/obot; heroku ps:restart)'
+alias bast='ssh jszmajda@devops-bastion.optoro.com -t "tmux attach || tmux"'
 function cd() {
   builtin cd "$@";
   rm -f /Users/josh/.cwd
@@ -72,8 +70,9 @@ export EDITOR=vim
 cwd
 fortune
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 export NVM_DIR="/Users/josh/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 export PATH=/Users/josh/.cabal/bin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH="$GEM_HOME/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
