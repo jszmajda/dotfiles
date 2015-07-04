@@ -21,6 +21,7 @@
   pl = !git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
   u = !git add -u && git status
   cnf = !git ls-files -u | cut -f 2 | sort -u
+  pom = push origin master
   ;lc = log ORIG_HEAD.. --stat --no-merges
   ;mg = merge
   ;wu = log origin/master..
@@ -54,6 +55,7 @@
   frag = magenta bold
   old = red bold
   new = green bold
+  whitespace = red reverse
 
 [color "status"]
   added = green
@@ -61,7 +63,11 @@
   untracked = cyan
 
 [push]
-  default = simple
+  default = current
 
 [include]
   path = ~/.secrets.gitconfig
+
+[user]
+  name = Joshua Szmajda
+  email = josh@optoro.com
