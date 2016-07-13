@@ -6,13 +6,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
+Plug 'solars/github-vim'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 Plug 'nanotech/jellybeans.vim'
 Plug 'michalbachowski/vim-wombat256mod'
 
-"Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'plasticboy/vim-markdown'
 Plug 'kchmck/vim-coffee-script'
@@ -52,6 +53,13 @@ Plug 'mattn/gist-vim'
 
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'keith/swift.vim'
+
+Plug 'elixir-lang/vim-elixir'
+
+" Plug 'flazz/vim-colorschemes'
+Plug 'vim-scripts/Colour-Sampler-Pack'
+
 " look into these later
 "Plug 'othree/eregex.vim'
 "Plug 'xolox/vim-session'
@@ -122,7 +130,7 @@ nmap <C-g> :TagbarToggle<CR>
 "set laststatus=2
 "let g:syntastic_enable_signs=1
 
-let g:agprg = 'ag --nogroup --nocolor --column'
+let g:ag_prg = 'ag --nogroup --nocolor --column'
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$', '\.hi$']
 
 nnoremap <C-p> :CtrlP<cr>
@@ -184,11 +192,13 @@ highlight Folded ctermbg=0 ctermfg=8
 nmap <leader>v :botright split ~/.vimrc<cr>
 
 au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
+"au BufWinEnter *.* silent loadview
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 "au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set foldmethod=manual
 "au FileType markdown setlocal wrap linebreak textwidth=72 nolist
 au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.exs set ft=elixir
 au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 au FileType hspec set ft=haskell
 au FileType hspec syn on
