@@ -41,6 +41,7 @@ alias annotate='bundle exec annotate -i -m -p before'
 alias dbreset='rake db:drop db:create db:migrate db:seed; RAILS_ENV=test rake db:drop db:create db:migrate db:seed'
 alias brake='bundle exec rake'
 alias root='ssh -l ubuntu '
+alias jsz='ssh -l jszmajda '
 alias d='ssh -l deploy '
 alias be='bundle exec '
 alias pyserver="python -m SimpleHTTPServer"
@@ -52,6 +53,8 @@ alias g=git
 alias gr=grunt
 alias robot='(cd /Users/josh/src/obot; heroku ps:restart)'
 alias bast='ssh jszmajda@devops-bastion.optoro.com -t "tmux attach || tmux"'
+alias diffcop='git status --porcelain | grep "M" | cut -c4- | grep ".rb" | xargs rubocop'
+alias vim='nvim'
 function cd() {
   builtin cd "$@";
   rm -f /Users/josh/.cwd
@@ -68,11 +71,11 @@ export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
 source .bash_secrets
 export EDITOR=vim
 cwd
-fortune
 
 export NVM_DIR="/Users/josh/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH=/Users/josh/.cabal/bin:/usr/local/bin:/usr/local/sbin:$PATH
-PATH="$GEM_HOME/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH=$PATH:/Users/josh/Library/Android/sdk/platform-tools
+
+eval "$(rbenv init -)"

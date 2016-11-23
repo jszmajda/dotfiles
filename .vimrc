@@ -241,3 +241,8 @@ colorscheme jellybeans
 map  <leader>sp :%s/ \+$//g<CR><C-O>
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" this stuff should make (mac?) neovim faster (with iterm?)
+set ttyfast
+set lazyredraw
+set cul!
