@@ -46,7 +46,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'

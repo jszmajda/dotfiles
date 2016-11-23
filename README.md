@@ -2,9 +2,12 @@
 
 ## Installation
 
-* You'll need [Janus](https://github.com/carlhuda/janus/), install as
-  directed.
-* Copy `.gitconfig.template` to `.gitconfig`, fill in the github token
+* Install Vim-plug https://github.com/junegunn/vim-plug
+* Install bash-it https://github.com/Bash-it/bash-it
 * Copy `.bash_secure.template` to `.bash_secure`, fill in the stuff in
   brackets.
+* From your home:
+    * `ln -sf /(fully qualified path to this repo)/.* ~/`
+    * `rm .git .bash_it`
+    * this isn't meant to be perfect, Josh only needs to use this like once or twice a year ;)
 * Profit!
