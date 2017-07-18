@@ -46,7 +46,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'junegunn/vim-peekaboo'
-"Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -59,6 +59,13 @@ Plug 'elixir-lang/vim-elixir'
 
 " Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/Colour-Sampler-Pack'
+
+Plug 'ElmCast/elm-vim'
+Plug 'digitaltoad/vim-pug'
+"Plug 'statianzo/vim-jade'
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " look into these later
 "Plug 'othree/eregex.vim'
@@ -246,3 +253,6 @@ nmap ga <Plug>(EasyAlign)
 set ttyfast
 set lazyredraw
 set cul!
+
+au FileType elm nmap <leader>m <Plug>(elm-make)
+au FileType elm nmap <leader>e <Plug>(elm-error-detail)
