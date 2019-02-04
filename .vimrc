@@ -2,6 +2,7 @@ let mapleader = ","
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
+Plug 'osyo-manga/vim-brightest'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -14,7 +15,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'michalbachowski/vim-wombat256mod'
 
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
+"Plug 'tpope/vim-rails'
 Plug 'plasticboy/vim-markdown'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-cucumber'
@@ -26,10 +27,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'skwp/vim-rspec'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'wavded/vim-stylus'
 Plug 'slim-template/vim-slim'
 
 Plug 'rking/ag.vim'
-Plug 'gorodinskiy/vim-coloresque'
+"Plug 'gorodinskiy/vim-coloresque'
 Plug 'kien/ctrlp.vim'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'tpope/vim-dispatch'
@@ -51,9 +53,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'keith/swift.vim'
+"Plug 'rust-lang/rust.vim'
+"Plug 'cespare/vim-toml'
+"Plug 'keith/swift.vim'
 
 Plug 'elixir-lang/vim-elixir'
 
@@ -65,7 +67,13 @@ Plug 'digitaltoad/vim-pug'
 "Plug 'statianzo/vim-jade'
 
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
+Plug 'udalov/kotlin-vim'
+
+Plug 'dln/avro-vim'
+Plug 'posva/vim-vue'
+" fast html mode but annoying ^Y binding I guess 
+Plug 'mattn/emmet-vim'
 
 " look into these later
 "Plug 'othree/eregex.vim'
@@ -89,6 +97,8 @@ set hlsearch    " highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
+set noeol
+set nofixendofline
 
 " statusline
 set laststatus=2  " always show the status bar
@@ -125,7 +135,7 @@ nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 nmap ss :w<CR>
 nmap sa :wall<CR>
-inoremap jj <Esc>
+"inoremap jj <Esc>
 nmap <Leader>w :set nowrap!<CR>
 "nmap <C-A> za
 nmap dbg :set background=dark<CR>
@@ -176,9 +186,12 @@ let g:syntastic_auto_loc_list=2
 
 let g:ctrlp_map = ''
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|\.hg$\|\.svn$|\.yardoc$',
+\ 'dir':  '\.git$\|\.hg$\|\.svn$|\.yardoc$\|node_modules\|DS_Store',
 \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
 \ }
+
+let g:user_emmet_leader_key='<C-Z>'
+
 
 "set statusline=%f\ %m\ %r
 set wrap
@@ -206,9 +219,10 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set foldmethod=manual
 "au FileType markdown setlocal wrap linebreak textwidth=72 nolist
 au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.exs set ft=elixir
-au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
-au FileType hspec set ft=haskell
-au FileType hspec syn on
+au BufNewFile,BufRead *.avsc set ft=json
+au FileType python <buffer> setlocal softtabstop=4 tabstop=4 shiftwidth=4
+au FileType hspec <buffer> set ft=haskell
+au FileType hspec <buffer> syn on
 " Remember last location in file, but not for commit messages.
 " see :help last-position-jump
 au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
@@ -248,11 +262,13 @@ colorscheme jellybeans
 map  <leader>sp :%s/ \+$//g<CR><C-O>
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+nmap gp :!gulp<CR>
 
 " this stuff should make (mac?) neovim faster (with iterm?)
 set ttyfast
 set lazyredraw
 set cul!
 
-au FileType elm nmap <leader>m <Plug>(elm-make)
-au FileType elm nmap <leader>e <Plug>(elm-error-detail)
+au FileType elm <buffer> nmap <leader>m <Plug>(elm-make)
+au FileType elm <buffer> nmap <leader>e <Plug>(elm-error-detail)
+au FileType vim <buffer> set iskeyword+=-
