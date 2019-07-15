@@ -1,4 +1,4 @@
-# Josh's Dotfiles
+# Jess's Dotfiles
 
 ## Installation
 
@@ -9,5 +9,5 @@
 * From your home:
     * `ln -sf /(fully qualified path to this repo)/.* ~/`
     * `rm .git .bash_it`
-    * this isn't meant to be perfect, Josh only needs to use this like once or twice a year ;)
+    * this isn't meant to be perfect, Jess only needs to use this like once or twice a year ;)
 * Profit!
