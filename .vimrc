@@ -75,6 +75,11 @@ Plug 'posva/vim-vue'
 " fast html mode but annoying ^Y binding I guess 
 Plug 'mattn/emmet-vim'
 
+Plug 'leafgarland/typescript-vim'
+
+" Python
+"Plug 'python-mode/python-mode'
+
 " look into these later
 "Plug 'othree/eregex.vim'
 "Plug 'xolox/vim-session'
@@ -220,7 +225,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set foldmethod=manual
 au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.exs set ft=elixir
 au BufNewFile,BufRead *.avsc set ft=json
-au FileType python <buffer> setlocal softtabstop=4 tabstop=4 shiftwidth=4
+"au FileType python <buffer> setlocal softtabstop=4 tabstop=4 shiftwidth=4
 au FileType hspec <buffer> set ft=haskell
 au FileType hspec <buffer> syn on
 " Remember last location in file, but not for commit messages.
@@ -271,4 +276,5 @@ set cul!
 
 au FileType elm <buffer> nmap <leader>m <Plug>(elm-make)
 au FileType elm <buffer> nmap <leader>e <Plug>(elm-error-detail)
-au FileType vim <buffer> set iskeyword+=-
+"au FileType vim <buffer> set iskeyword+=-
+au TermOpen * setlocal wrap
