@@ -277,4 +277,6 @@ set cul!
 au FileType elm <buffer> nmap <leader>m <Plug>(elm-make)
 au FileType elm <buffer> nmap <leader>e <Plug>(elm-error-detail)
 "au FileType vim <buffer> set iskeyword+=-
-au TermOpen * setlocal wrap
+"au TermOpen * setlocal wrap
+set directory=$HOME/.vim/swapfiles//
+let g:vim_markdown_folding_disabled = 1
