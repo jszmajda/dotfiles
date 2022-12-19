@@ -42,7 +42,7 @@ Plug 'tmhedberg/matchit'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/ZoomWin'
+"Plug 'vim-scripts/ZoomWin'
 
 "Plug 'AndrewRadev/splitjoin.vim' interesting but behaving oddly
 Plug 'vasconcelloslf/vim-interestingwords'
@@ -67,15 +67,16 @@ Plug 'digitaltoad/vim-pug'
 "Plug 'statianzo/vim-jade'
 
 Plug 'pangloss/vim-javascript'
-"Plug 'mxw/vim-jsx'
-Plug 'udalov/kotlin-vim'
+Plug 'mxw/vim-jsx'
+"Plug 'udalov/kotlin-vim'
 
-Plug 'dln/avro-vim'
-Plug 'posva/vim-vue'
+"Plug 'dln/avro-vim'
+"Plug 'posva/vim-vue'
 " fast html mode but annoying ^Y binding I guess 
 Plug 'mattn/emmet-vim'
 
 Plug 'leafgarland/typescript-vim'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Python
 "Plug 'python-mode/python-mode'
@@ -85,6 +86,8 @@ Plug 'leafgarland/typescript-vim'
 "Plug 'xolox/vim-session'
 " :so %
 " :PlugInstall
+"
+Plug 'killphi/vim-ebnf'
 
 call plug#end()
 
@@ -260,6 +263,7 @@ set t_Co=256
 "colorscheme desert256
 colorscheme jellybeans
 " set mouse=a
+set mouse=
 
 "set undofile
 "set undodir=~/.vim/
@@ -268,6 +272,7 @@ map  <leader>sp :%s/ \+$//g<CR><C-O>
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 nmap gp :!gulp<CR>
+nmap <leader>jq V:%!jq .<CR>
 
 " this stuff should make (mac?) neovim faster (with iterm?)
 set ttyfast
@@ -280,3 +285,18 @@ au FileType elm <buffer> nmap <leader>e <Plug>(elm-error-detail)
 "au TermOpen * setlocal wrap
 set directory=$HOME/.vim/swapfiles//
 let g:vim_markdown_folding_disabled = 1
+let g:table_mode_corner='|'
+function! STAREntry()
+  call inputsave()
+  let handle = input('Handle: ')
+  let situation = input('Situation: ')
+  let task = input('Task: ')
+  let action = input('Action: ')
+  let result = input('Result: ')
+  let curtime = strftime('%c')
+  call inputrestore()
+  call setline('.', curtime . ' ' . handle . ' - Sit: ' . situation . ' - Task: ' . task . ' - Act: ' . action . ' - Res: ' . result)
+  normal f-
+  return ""
+endfunction
+inoremap <C-G> <C-R>=STAREntry()<CR>
